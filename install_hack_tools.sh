@@ -2,19 +2,18 @@
 
 
 clear
-echo -e "\e[1;31m  _    _            _      _______          _     \e[0m"
-echo -e "\e[1;32m | |  | |          | |    |__   __|        | |    \e[0m"
-echo -e "\e[1;33m | |__| | __ _  ___| | __    | | ___   ___ | |___ \e[0m"
-echo -e "\e[1;34m |  __  |/ _\` |/ __| |/ /    | |/ _ \ / _ \| / __|\e[0m"
-echo -e "\e[1;35m | |  | | (_| | (__|   <     | | (_) | (_) | \__ \\e[0m"
-echo -e "\e[1;36m |_|  |_|\__,_|\___|_|\_\    |_|\___/ \___/|_|___/\e[0m"
+echo -e "\e[1;31m  _    _            _      _______          _          \e[0m"
+echo -e "\e[1;32m | |  | |          | |    |__   __|        | |         \e[0m"
+echo -e "\e[1;33m | |__| | __ _  ___| | __    | | ___   ___ | |___      \e[0m"
+echo -e "\e[1;34m |  __  |/ _\` |/ __| |/ /    | |/ _ \ / _ \| / __|    \e[0m"
+echo -e "\e[1;35m | |  | | (_| | (__|   <     | | (_) | (_) | \__ \     \e[0m"
+echo -e "\e[1;36m |_|  |_|\__,_|\___|_|\_\    |_|\___/ \___/|_|___/     \e[0m"
 
 
 
 echo -e "\n"
 echo "This script is designed to install some \"offensive tools\" for penetration testing, ethical hacking, cracking passwords, etc. It has been tested on Debian 12."
 echo -e "\n\n"
-
 
 read -rp "Press Enter to continue or CTRL-C to exit."
 
@@ -24,6 +23,9 @@ original_directory=$(pwd)
 
 
 
+################################################
+## CHECK FOR SUDO
+################################################
 
 # Run as root
 clear
@@ -32,7 +34,7 @@ sleep 2
 
 
 if [ "$(id -u)" -ne 0 ]; then
-    echo "This script requires root privileges. Re-running with sudo..."
+    echo "This script requires root privileges. Please re-run with sudo."
     sudo "$0" "$@"  # Re-run the script with sudo
     exit 1  # Exit to prevent further execution of the script in the non-root context
 else
@@ -41,6 +43,11 @@ else
 fi
 
 
+
+
+################################################
+## UPDATE AND UPGRADE AS NEEDED
+################################################
 
 # Update and upgrade the system
 #echo "Updating and upgrading the system..."
@@ -63,7 +70,6 @@ sleep 2
 ################################################
 ## ESSENTIAL PACKAGES
 ################################################
-
 
 clear
 echo -e "\n ${GREEN}[+]${RESET} ${GREEN}Installing${RESET} essential packages."
@@ -131,7 +137,6 @@ fi
 ## EXPLOITING
 ################################################
 
-
 # Metasploit
 AppName="msfconsole"
 clear
@@ -185,7 +190,6 @@ fi
 ## PASSWORD CRACKING
 ################################################
 
-
 # Hashid
 AppName="hashid"
 clear
@@ -234,7 +238,6 @@ fi
 ## WEB HACKING
 ################################################
 
-
 # BurpSuite
 AppName="BurpSuiteCommunity"
 clear
@@ -279,12 +282,9 @@ fi
 
 
 
-
-
 ################################################
 ## WIFI / PACKET SNIFFING
 ################################################
-
 
 # Wireshark
 AppName="wireshark"
@@ -414,7 +414,6 @@ fi
 
 
 
-
 ################################################
 ## SOCIAL ENGINEERING
 ################################################
@@ -439,15 +438,11 @@ fi
 
 
 
-
 ################################################
 ## WORDLISTS
 ################################################
 
 echo -e "\n Installing ${GREEN}wordlists${RESET}; this might take a while!"
-
-
-
 
 # SecLists
 clear
@@ -521,7 +516,6 @@ else
 fi
 
 
-
 # SET WORDLIST PERMISSIONS
 clear
 echo -e -e "\n ${GREEN}[+]${RESET} ${GREEN}Setting${RESET} wordlist permissions."
@@ -538,6 +532,7 @@ find ${optdir}/pspy -exec chown -v -R ${user}:${user} {} \;
 ################################################
 ## CLEAN THE SYSTEM
 ################################################
+
 clear
 echo -e "\n ${GREEN}[+]${RESET} ${GREEN}Cleaning${RESET} left over files after install."
 sleep 2
@@ -558,6 +553,7 @@ cd ~
 ################################################
 ## SET UP MONTHLY UPDATES
 ################################################
+
 clear
 echo -e "\n ${GREEN}[+]${RESET} ${GREEN}Setting up cron job${RESET} for monthly system upgrades."
 sleep 2
@@ -575,6 +571,7 @@ sleep 2
 ################################################
 ## DISPLAY INSTALLATION COMPLETE MESSAGE
 ################################################
+
 clear
 sleep 2
 source ~/.bashrc
