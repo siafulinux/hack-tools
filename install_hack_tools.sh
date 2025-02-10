@@ -12,7 +12,11 @@ echo -e "\e[1;36m |_|  |_|\__,_|\___|_|\_\    |_|\___/ \___/|_|___/     \e[0m"
 
 
 echo -e "\n"
-echo "This script is designed to install some \"offensive tools\" for penetration testing, ethical hacking, cracking passwords, etc. It has been tested on Debian 12."
+echo "This script is designed to install some \"offensive tools\" for penetration testing, ethical hacking, cracking passwords, etc. It has been tested on Debian 12 but should work on similar Debian-based distributions.
+
+Additionally, the script sets up a monthly cron job to keep installed tools updated automatically.
+
+Disclaimer: By using this script, you acknowledge that you are fully responsible for any potential damage, failures, or issues that may arise from using or installing the tools. I am not responsible for any data loss, system instability, or other adverse effects caused by running this script. Use at your own risk."
 echo -e "\n\n"
 
 read -rp "Press Enter to continue or CTRL-C to exit."
