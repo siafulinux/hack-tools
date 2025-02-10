@@ -22,7 +22,10 @@ By using this script, you acknowledge that you are fully responsible for any pot
     cd hack-tools
     chmod +x install_hack_tools.sh
     sudo ./install_hack_tools.sh
-    
+
+
+<img src='https://github.com/siafulinux/hack-tools/blob/main/Hack%20Tools%202.png'></img>
+
 ## Applications installed:
 
 ### PRIVACY
