@@ -6,6 +6,8 @@ This script is designed to automate the installation of essential "offensive too
 
 Additionally, the script sets up a monthly cron job to keep installed tools updated automatically.
 
+<img src='https://github.com/siafulinux/hack-tools/blob/main/Hack%20Tools.png'></img>
+
 ### Disclaimer
 
 By using this script, you acknowledge that you are fully responsible for any potential damage, failures, or issues that may arise from using or installing the tools. I am not responsible for any data loss, system instability, or other adverse effects caused by running this script. Use at your own risk.
