@@ -4,27 +4,27 @@ This script is designed to install the main \"offensive tools\" for penetration 
 
 Applications installed:
 
-nmap
-MetaSploit
-Nikto
-GoBuster
-Hashcat
-John the Ripper
-BurpSuite
-SQLmap
-Hydra
-Wireshark
-TShark
-Bettercap
-Aircrack-ng
-Wifite
-Sherlock
-theHarvester
-Recon-ng
+  * nmap
+  * MetaSploit
+  * Nikto
+  * GoBuster
+  * Hashcat
+  * John the Ripper
+  * BurpSuite
+  * SQLmap
+  * Hydra
+  * Wireshark
+  * TShark
+  * Bettercap
+  * Aircrack-ng
+  * Wifite
+  * Sherlock
+  * theHarvester
+  * Recon-ng
 
 Also installs the following wordlists...
 
-SecLists
-DirBuster
-usernames.txt
-rockyou.txt
+  * SecLists
+  * DirBuster
+  * usernames.txt
+  * rockyou.txt
