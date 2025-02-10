@@ -1,7 +1,23 @@
-# hack-tools
+# Offensive Tools Installation Script
 
-This script is designed to install the main \"offensive tools\" for penetration testing, ethical hacking, cracking passwords, blue teaming and red teaming etc. It has been tested on Debian 12. It will also create a monthly cron job to upgrade apps.
+### Overview
 
+This script is designed to automate the installation of essential "offensive tools" for penetration testing, ethical hacking, password cracking, blue teaming, red teaming, and related activities. It has been tested on Debian 12 but should work on similar Debian-based distributions.
+
+Additionally, the script sets up a monthly cron job to keep installed tools updated automatically.
+Disclaimer
+
+By using this script, you acknowledge that you are fully responsible for any potential damage, failures, or issues that may arise from using or installing the tools. I am not responsible for any data loss, system instability, or other adverse effects caused by running this script. Use at your own risk.
+Requirements
+
+  * Debian 12 (tested, but other Debian-based distributions may work)
+  * Root privileges for installation and cron job setup
+
+### Installation
+
+    Clone or download the script to your machine.
+    Run the script with root privileges to install the tools and set up the cron job.
+    
 ## Applications installed:
 
 ### PRIVACY
