@@ -44,10 +44,10 @@ sleep 2
 
 if [[ ${EUID} -ne 0 ]]; then
         echo -e ' '${RED}'[!]'${RESET}" This script must be ${RED}run as root${RESET}..." 1>&2
-        sudo su
+        sudo su -
         #exit 1
 else
-    echo -e " ${BLUE}[*]${RESET} ${BOLD}HPVC tools post fresh install ${RESET}"
+    echo -e " ${BLUE}[*]${RESET} ${BOLD}Tools post fresh install ${RESET}"
 fi
 
 
