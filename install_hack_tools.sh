@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 clear
 echo -e "\e[1;31m  _    _            _      _______          _     \e[0m"
 echo -e "\e[1;32m | |  | |          | |    |__   __|        | |    \e[0m"
@@ -11,20 +12,14 @@ echo -e "\e[1;36m |_|  |_|\__,_|\___|_|\_\    |_|\___/ \___/|_|___/\e[0m"
 
 
 echo -e "\n"
-echo "This script is designed to automate the installation of essential \"offensive tools\" for penetration testing, ethical hacking, password cracking, blue teaming, red teaming, and related activities. It has been tested on Debian 12 but should work on similar Debian-based distributions.
+echo "This script is designed to install the main \"offensive tools\" for penetration testing, ethical hacking, cracking passwords, blue teaming and red teaming etc. It has been tested on Debian 12."
+echo -e "\n\n"
 
-Additionally, the script sets up a monthly cron job to keep installed tools updated automatically.
 
-Disclaimer
-
-By using this script, you acknowledge that you are fully responsible for any potential damage, failures, or issues that may arise from using or installing the tools. I am not responsible for any data loss, system instability, or other adverse effects caused by running this script. Use at your own risk."
-echo -e "\n"
-
-read -rp "Press Enter to continue..."
+read -rp "Press Enter to continue or CTRL-C to exit."
 
 # SET ORIGINAL DIRECTORY TO GO BACK TO FOR CLEANUP AFTER
 original_directory=$(pwd)
-
 
 
 
@@ -35,20 +30,23 @@ clear
 echo -e "\n ${GREEN}[+]${RESET} ${GREEN}Checking${RESET} if you are running as root."
 sleep 2
 
-if [[ ${EUID} -ne 0 ]]; then
-        echo -e ' '${RED}'[!]'${RESET}" This script must be ${RED}run as root${RESET}..." 1>&2
-        sudo su -
-        #exit 1
+
+if [ "$(id -u)" -ne 0 ]; then
+    echo "This script requires root privileges. Re-running with sudo..."
+    sudo "$0" "$@"  # Re-run the script with sudo
+    exit 1  # Exit to prevent further execution of the script in the non-root context
 else
     echo -e " ${BLUE}[*]${RESET} ${BOLD}Tools post fresh install ${RESET}"
+    # Place your script's functionality here
 fi
 
 
+
 # Update and upgrade the system
-echo "Updating and upgrading the system..."
+#echo "Updating and upgrading the system..."
 clear
-#echo -e "\n ${GREEN}[+]${RESET} ${GREEN}Updating and upgrading${RESET} the system."
-#sleep 2
+echo -e "\n ${GREEN}[+]${RESET} ${GREEN}Updating and upgrading${RESET} the system."
+sleep 2
 
 echo -e "\n ${GREEN}[+]${RESET} ${GREEN}Updating system...${RESET}"
 apt -y -qq update || echo -e ' '${RED}'[!] Issue with apt'${RESET} 1>&2
@@ -57,19 +55,6 @@ sleep 2
 echo -e "\n ${GREEN}[+]${RESET} ${GREEN}Upgrading system...${RESET}"
 apt -y -qq dist-upgrade || echo -e ' '${RED}'[!] Issue with apt'${RESET} 1>&2
 sleep 2
-
-
-
-# INSTALL NECESSARY FILES
-#sudo apt install \
-#vim tmux zsh nmap masscan onesixtyone htop ca-certificates network-manager-openvpn network-manager-pptp \
-#network-manager-vpnc network-manager-openconnect gobuster network-manager-iodine hashid cewl bsdgames proxychains \
-#sshuttle apt-file apt-show-versions sqlmap sqlite3 ssldump fcrackzip john hydra cewl crunch hashid \
-#nasm wfuzz dmitry nfs-common hping3 ncat dnsenum binwalk smbmap gparted \
-#enum4linux wireshark joomscan rubygems commix nikto exploitdb wfuzz hashcat \
-#smtp-user-enum websploit amap ssldump whois socat nishang traceroute dnsutils dnsrecon
-
-
 
 
 
@@ -84,7 +69,40 @@ clear
 echo -e "\n ${GREEN}[+]${RESET} ${GREEN}Installing${RESET} essential packages."
 sleep 2
 
-sudo apt-get install -y curl wget apt-transport-https gnupg
+sudo apt-get install -y curl wget apt-transport-https gnupg build-essential libssl-dev libbz2-dev zlib1g-dev
+
+
+
+
+
+################################################
+## PRIVACY
+################################################
+
+# ProxyChains
+AppName="proxychains"
+clear
+if which $AppName > /dev/null; then
+    echo -e "\n ProxyChains is already installed. Skipping."
+else
+    echo -e "\n ${GREEN}[+]${RESET} ${GREEN}Installing${RESET} ProxyChains."
+    sleep 2
+    sudo apt install $AppName -y || echo -e ' '${RED}'[!] Issue with apt'${RESET} 1>&2
+fi
+
+
+
+
+# TOR
+AppName="tor"
+clear
+if which $AppName > /dev/null; then
+    echo -e "\n Tor is already installed. Skipping."
+else
+    echo -e "\n ${GREEN}[+]${RESET} ${GREEN}Installing${RESET} Tor."
+    sleep 2
+    sudo apt install $AppName -y || echo -e ' '${RED}'[!] Issue with apt'${RESET} 1>&2
+fi
 
 
 
@@ -147,7 +165,6 @@ fi
 
 
 
-
 # GoBuster
 AppName="gobuster"
 clear
@@ -167,6 +184,21 @@ fi
 ################################################
 ## PASSWORD CRACKING
 ################################################
+
+
+# Hashid
+AppName="hashid"
+clear
+if which $AppName > /dev/null; then
+    echo -e "\n Hashid is already installed. Skipping."
+    sleep 1
+else
+    echo -e "\n ${GREEN}[+]${RESET} ${GREEN}Installing${RESET} Hashid."
+    sleep 2
+    sudo apt install $AppName -y || echo -e ' '${RED}'[!] Issue with apt'${RESET} 1>&2
+fi
+
+
 
 # Hashcat
 AppName="hashcat"
@@ -191,6 +223,7 @@ else
     echo -e "\n ${GREEN}[+]${RESET} ${GREEN}Installing${RESET} John The Ripper."
     sleep 2
     sudo apt install $AppName -y || echo -e ' '${RED}'[!] Issue with apt'${RESET} 1>&2
+    echo 'export PATH="$PATH:/usr/sbin/john"' >> ~/.bashrc
 fi
 
 
@@ -310,7 +343,7 @@ fi
 
 
 
-# Wireshark
+# Wifite
 AppName="wifite"
 clear
 if which $AppName > /dev/null; then
@@ -382,6 +415,27 @@ fi
 
 
 
+################################################
+## SOCIAL ENGINEERING
+################################################
+
+# Penetration Tool Kit
+clear
+if [ -e "/opt/ptf" ]; then
+    echo -e "\n Penetration Tool Kit is already installed. Skipping."
+    sleep 1
+else
+    clear
+    echo -e "\n ${GREEN}[+]${RESET} ${GREEN}Installing${RESET} Penetration Tool Kit"
+    sleep 2
+
+    cd /opt
+    sudo git clone https://github.com/trustedsec/ptf.git
+    cd ptf
+    sudo chmod +x ptf
+    echo 'export PATH="$PATH:/opt/ptf"' >> ~/.bashrc
+    source ~/.bashrc
+fi
 
 
 
@@ -523,4 +577,5 @@ sleep 2
 ################################################
 clear
 sleep 2
+source ~/.bashrc
 echo -e "\n\n Setup completed successfully! Thank you for using this script! \n\n"
