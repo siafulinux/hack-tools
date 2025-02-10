@@ -12,7 +12,7 @@ echo -e "\e[1;36m |_|  |_|\__,_|\___|_|\_\    |_|\___/ \___/|_|___/\e[0m"
 
 
 echo -e "\n"
-echo "This script is designed to install the main \"offensive tools\" for penetration testing, ethical hacking, cracking passwords, blue teaming and red teaming etc. It has been tested on Debian 12."
+echo "This script is designed to install some \"offensive tools\" for penetration testing, ethical hacking, cracking passwords, etc. It has been tested on Debian 12."
 echo -e "\n\n"
 
 
