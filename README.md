@@ -4,47 +4,34 @@ This script is designed to install the main \"offensive tools\" for penetration 
 
 ## Applications installed:
 
-
-################################################
-## PRIVACY
-################################################
+### PRIVACY
 
   * Proxychains
   * TOR
   
-################################################
-## SCANNING
-################################################
+### SCANNING
 
   * nmap
 
-################################################
-## EXPLOITING
-################################################
+### EXPLOITING
 
   * MetaSploit
   * Nikto
   * GoBuster
 
-################################################
-## PASSWORD CRACKING
-################################################
+### PASSWORD CRACKING
 
   * Hashid
   * Hashcat
   * John the Ripper
 
-################################################
-## WEB HACKING
-################################################
+### WEB HACKING
 
   * BurpSuite
   * SQLmap
   * Hydra
 
-################################################
-## WIFI / PACKET SNIFFING
-################################################
+### WIFI / PACKET SNIFFING
 
   * Wireshark
   * TShark
@@ -52,21 +39,17 @@ This script is designed to install the main \"offensive tools\" for penetration 
   * Aircrack-ng
   * Wifite
 
-################################################
-## OSINT
-################################################
+### OSINT
 
   * Sherlock
   * theHarvester
   * Recon-ng
 
-################################################
-## SOCIAL ENGINEERING
-################################################
+### SOCIAL ENGINEERING
 
   * Penetration Tool Kit
 
-## Wordlists
+# Wordlists
 
   * SecLists
   * DirBuster
