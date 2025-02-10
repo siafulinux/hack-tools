@@ -1,6 +1,4 @@
 #!/bin/bash
-# Install Hacking, Phreaking, Viral, Cracking Tools (HPVC Tools)
-
 
 clear
 echo -e "\e[1;31m  _    _            _      _______          _     \e[0m"
