@@ -2,7 +2,7 @@
 
 This script is designed to install the main \"offensive tools\" for penetration testing, ethical hacking, cracking passwords, blue teaming and red teaming etc. It has been tested on Debian 12.
 
-Applications installed:
+## Applications installed:
 
   * nmap
   * MetaSploit
@@ -22,7 +22,7 @@ Applications installed:
   * theHarvester
   * Recon-ng
 
-Also installs the following wordlists...
+## Wordlists
 
   * SecLists
   * DirBuster
